@@ -1,0 +1,28 @@
+@import url(./templates/Header/Header.css);
+@import url(./templates/Main/Main.css);
+@import url(./Classes/NumberItem/NumberItem.css);
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+#root {
+    margin: auto;
+    padding: 20px;
+}
+
+body {
+    background-color: #f9f8f0;
+}
