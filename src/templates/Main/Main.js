@@ -1,4 +1,4 @@
-import { getFileContentSync } from "/tools/index.js";
+import { getFileContentSync } from "@/tools/index.js";
 
 const Main = () => {
     const template = getFileContentSync("/templates/Main/Main.html");

@@ -1,4 +1,4 @@
-import {NumberItem} from "/Classes/index.js";
+import {NumberItem} from "@/Classes/index.js";
 import checkEnd from "./checkEnd.js";
 
 const randomCreateItem = (stateMatrix, keyUpHandler) => {

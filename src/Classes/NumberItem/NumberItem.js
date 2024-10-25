@@ -1,4 +1,4 @@
-import { gloablVar, curScore } from "/scripts/global.js";
+import { gloablVar, curScore } from "@/scripts/global.js";
 
 const getGridPos = (index) => {
     const posArray = ['0','120','240','360'];

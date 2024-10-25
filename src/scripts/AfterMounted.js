@@ -1,9 +1,8 @@
-import { MyUseState } from "/tools/Hooks/index.js";
 import { clickUp, clickDown, clickLeft, clickRight} from "./handleClick/index.js";
 import initContainer from "./initContainer.js";
 import randomCreateItem from "./randomCreateItem.js";
 import { gloablVar } from "./global.js";
-import { throttle } from "/tools/FunctionalTools/index.js";
+import { throttle } from "@/tools/FunctionalTools/index.js";
 
 
 const AfterMounted = () => {
