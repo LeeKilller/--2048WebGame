@@ -1,4 +1,5 @@
 import { gloablVar, curScore } from "@/scripts/global.js";
+import keyUpHandler from "../../scripts/handleClick";
 
 const getGridPos = (index) => {
     const posArray = ['0','120','240','360'];
@@ -149,6 +150,12 @@ class NumberItem {
         }
 
         animationFunc(0);
+
+        if(this.value === 2048 && !gloablVar.isWin) {
+            document.querySelector('.main-win').style.display = 'flex';
+            document.removeEventListener('keyup', keyUpHandler);
+            gloablVar.isWin = true;
+        }
 
     }
 

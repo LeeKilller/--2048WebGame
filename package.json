@@ -10,6 +10,7 @@
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
+    "nw": "^0.93.0",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.95.0",
@@ -18,7 +19,9 @@
   },
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack && nwbuild --cacheDir=./node_modules/nw  ./"
+    "build": "webpack && nwbuild --mode=build --glob=false --flavor=sdk --cacheDir=./node_modules/nw ./public"
   },
-  "dependencies": {}
+  "dependencies": {
+    "nw-builder": "4.9.0"
+  }
 }

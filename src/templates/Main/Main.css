@@ -60,3 +60,30 @@
     color: #fff;
     margin-top: 20px;
 }
+
+.main-win {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 242, 188, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    position: absolute;
+}
+
+.main-win button {
+    width: 100px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: #8b7b68;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.main-win h1 {
+    color: #776e65;
+}

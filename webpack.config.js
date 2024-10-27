@@ -15,7 +15,7 @@ module.exports = {
     },
     output: {
         filename: "mian.[contenthash:8].js",
-        path: path.resolve(__dirname, "build"),
+        path: path.resolve(__dirname, "./public/source"),
         clean: true
     },
 
@@ -26,7 +26,8 @@ module.exports = {
     },
 
     plugins: [new HtmlWebpackPlugin({
-        title: "Game 2048"
+        title: "Game 2048",
+        favicon: path.resolve(__dirname,'./public/favicon.ico')
     })],
 
     optimization: {

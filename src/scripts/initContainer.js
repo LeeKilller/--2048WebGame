@@ -1,5 +1,5 @@
 import { NumberItem } from "@/Classes/index.js";
-import { curScore } from "./global.js";
+import { curScore, gloablVar } from "./global.js";
 
 
 const getRandomPos = (matrix, count = 2) => {
@@ -34,6 +34,7 @@ const initContainer = (stateMatrix) => {
     score.innerText = 0;
     container.innerHTML = '';
     curScore.value = 0;
+    gloablVar.isWin = false;
 
     // 获取随机的两个位置
     const [pos1, pos2] = getRandomPos(stateMatrix);

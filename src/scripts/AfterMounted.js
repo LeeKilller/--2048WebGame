@@ -1,16 +1,17 @@
-import { clickUp, clickDown, clickLeft, clickRight} from "./handleClick/index.js";
+import keyUpHandler from "./handleClick/index.js";
 import initContainer from "./initContainer.js";
 import randomCreateItem from "./randomCreateItem.js";
 import { gloablVar } from "./global.js";
 import { throttle } from "@/tools/FunctionalTools/index.js";
 
+export const stateMatrix = Array(4).fill(null).map(()=>Array(4).fill(0));
 
 const AfterMounted = () => {
     const restart = document.querySelector("#restart");
     const cover = document.querySelector(".main-cover");
     const tryAgain = document.querySelector(".main-cover button");
 
-    const stateMatrix = Array(4).fill(null).map(()=>Array(4).fill(0));
+   
 
     document.querySelector('#best').innerText = Number(localStorage.getItem('bestScore')) || 0;
 
@@ -25,36 +26,42 @@ const AfterMounted = () => {
         //console.log('click');
     })
 
+    document.querySelector(".main-win button").addEventListener('click', () => {
+        document.querySelector('.main-win').style.display = 'none';
+        initContainer(stateMatrix);
+        document.addEventListener('keyup',keyUpHandler);
+    })
+
     initContainer(stateMatrix);
 
-    const keyUpHandler = throttle((e) => {
-        // console.log(e.key);
+    // const keyUpHandler = throttle((e) => {
+    //     // console.log(e.key);
 
-        if(e.key === 'w' || e.key === 'W' || e.key === 'ArrowUp') {
-            clickUp(stateMatrix);
-        }
+    //     if(e.key === 'w' || e.key === 'W' || e.key === 'ArrowUp') {
+    //         clickUp(stateMatrix);
+    //     }
 
-        if(e.key === 's' || e.key === 'S' || e.key === 'ArrowDown') {
-            clickDown(stateMatrix);
-        }
+    //     if(e.key === 's' || e.key === 'S' || e.key === 'ArrowDown') {
+    //         clickDown(stateMatrix);
+    //     }
 
-        if(e.key === 'a' || e.key === 'A' || e.key === 'ArrowLeft') {
-            clickLeft(stateMatrix);
-        }
+    //     if(e.key === 'a' || e.key === 'A' || e.key === 'ArrowLeft') {
+    //         clickLeft(stateMatrix);
+    //     }
 
-        if(e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight') {
-            clickRight(stateMatrix);
-        }
+    //     if(e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight') {
+    //         clickRight(stateMatrix);
+    //     }
 
-        setTimeout(()=>{
-            if(gloablVar.hasItemMoved) {
-                randomCreateItem(stateMatrix,keyUpHandler);
-                gloablVar.hasItemMoved = false;
-            }
-            // checkEnd(stateMatrix,keyUpHandler);
-            // console.log(stateMatrix.map(ele=>ele.map(ele=>ele?ele.value:0)));
-        },300)
-    })
+    //     setTimeout(()=>{
+    //         if(gloablVar.hasItemMoved) {
+    //             randomCreateItem(stateMatrix,keyUpHandler);
+    //             gloablVar.hasItemMoved = false;
+    //         }
+    //         // checkEnd(stateMatrix,keyUpHandler);
+    //         // console.log(stateMatrix.map(ele=>ele.map(ele=>ele?ele.value:0)));
+    //     },300)
+    // })
 
 
     document.addEventListener('keyup',keyUpHandler)

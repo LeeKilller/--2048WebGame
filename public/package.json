@@ -1,0 +1,19 @@
+{
+  "name": "Game2048", 
+  "version": "1.0.0",
+  "description": "",
+  "main": "./source/index.html", 
+  
+  "window": {
+    "title": "Game2048",	
+    "icon": "./logo.png",	
+    "width": 1000,
+    "height": 800,
+    "toolbar": false,
+    "frame": true,
+    "resizable": true,
+    "position": "center",
+    "transparent": false,
+    "show": true
+  }
+}

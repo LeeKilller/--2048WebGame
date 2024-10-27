@@ -1,10 +1,8 @@
+
 const gloablVar = {
     hasItemMoved:false,
+    isWin:false
 }
-
-const score = document.querySelector('#score');
-const best = document.querySelector('#best');
-
 
 const bestScore = new Proxy({
     value:Number(localStorage.getItem('bestScore')) || 0
