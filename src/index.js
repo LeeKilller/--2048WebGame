@@ -1,9 +1,17 @@
 import render from "./tools/render.js";
 import run from "./tools/run.js";
+import App from "./App.js";
+import "./index.css";
 
-import App from "./App.js"
 
-const root = document.querySelector('#root');
+
+const root = document.createElement('div');
+
+root.id = 'root';
+
+document.body.appendChild(root);
+
+// document.querySelector('#root');
 
 run(render,App,root);
 
