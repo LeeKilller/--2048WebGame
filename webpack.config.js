@@ -60,6 +60,6 @@ module.exports = {
     },
 
     devServer: {
-        static: "./build"
+        static: "./public/source"
     }
 }
