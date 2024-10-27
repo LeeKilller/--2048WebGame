@@ -1,5 +1,5 @@
 module.exports = function(source) {
-    console.log(source);
+    //console.log(source);
 
     // return eval("export default sourse");
     // return eval("`" + source + "`");
