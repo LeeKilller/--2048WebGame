@@ -87,3 +87,35 @@
 .main-win h1 {
     color: #776e65;
 }
+
+
+@media (max-width:540px) {
+    .main {
+        zoom: .9;
+    }
+}
+
+@media (max-width:470px) {
+    .main {
+        zoom: .8;
+    }
+}
+
+
+@media (max-width:400px) {
+    .main {
+        zoom: .7;
+    }
+}
+
+@media (max-width:330px) {
+    .main {
+        zoom: .6;
+    }
+}
+
+@media (max-width:260px) {
+    .main {
+        zoom: .5;
+    }
+}

@@ -13,6 +13,9 @@
     color: #766e66;
     margin-right: auto;
     font-size: 38px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
 }
 
 .header-board ul {
@@ -46,6 +49,9 @@
     color: #756e66;
     font-weight: 500;
     font-size: 20px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
 }
 
 #restart {
@@ -55,6 +61,9 @@
     color: #ffffff;
     font-size: 20px;
     border-radius: 5px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
 }
 
 @media (max-width: 520px) {
