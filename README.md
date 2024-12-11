@@ -14,12 +14,12 @@ npm install
 ## 热重载
 
 ```
-npm start
+npm run start
 ```
 
 ## 打包
 
 ```
-npm build
+npm run build
 ```
 
