@@ -1,24 +1,28 @@
 import keyUpHandler from "./handleClick/index.js";
 import initContainer from "./initContainer.js";
+import {
+    clickDown,
+    clickLeft,
+    clickRight,
+    clickUp
+} from "./handleClick/index.js";
 import randomCreateItem from "./randomCreateItem.js";
 import { gloablVar } from "./global.js";
 import { throttle } from "@/tools/FunctionalTools/index.js";
 
-export const stateMatrix = Array(4).fill(null).map(()=>Array(4).fill(0));
+export const stateMatrix = Array(4).fill(null).map(() => Array(4).fill(0));
 
 const AfterMounted = () => {
     const restart = document.querySelector("#restart");
     const cover = document.querySelector(".main-cover");
     const tryAgain = document.querySelector(".main-cover button");
 
-   
-
     document.querySelector('#best').innerText = Number(localStorage.getItem('bestScore')) || 0;
 
-    tryAgain.addEventListener('click',() => {
+    tryAgain.addEventListener('click', () => {
         cover.style.display = 'none';
         initContainer(stateMatrix);
-        document.addEventListener('keyup',keyUpHandler)
+        document.addEventListener('keyup', keyUpHandler)
     })
 
     restart.addEventListener('click', () => {
@@ -29,7 +33,7 @@ const AfterMounted = () => {
     document.querySelector(".main-win button").addEventListener('click', () => {
         document.querySelector('.main-win').style.display = 'none';
         initContainer(stateMatrix);
-        document.addEventListener('keyup',keyUpHandler);
+        document.addEventListener('keyup', keyUpHandler);
     })
 
     initContainer(stateMatrix);
@@ -64,8 +68,54 @@ const AfterMounted = () => {
     // })
 
 
-    document.addEventListener('keyup',keyUpHandler)
+    document.addEventListener('keyup', keyUpHandler)
 
+    let startX, startY;
+
+    const container = document.querySelector('#main-real-container');
+
+    container.addEventListener('touchstart', (e) => {
+        //console.log(e.touches[0]);
+        startX = e.touches[0].pageX;
+        startY = e.touches[0].pageY;
+    })
+
+    container.addEventListener('touchend', throttle((e) => {
+        //console.log('end', e.changedTouches[0]);
+        const endX = e.changedTouches[0]?.pageX;
+        const endY = e.changedTouches[0]?.pageY;
+        const distanceX = endX - startX;
+        const distanceY = endY - startY;
+        if (startX != null) {
+            if (Math.abs(distanceX) > Math.abs(distanceY)) {
+                if (distanceX > 0) {
+                    clickRight(stateMatrix);
+                } else {
+                    clickLeft(stateMatrix);
+                }
+            } else {
+                if (distanceY > 0) {
+                    clickDown(stateMatrix);
+                } else {
+                    clickUp(stateMatrix);
+                }
+            }
+
+            setTimeout(() => {
+                if (gloablVar.hasItemMoved) {
+                    randomCreateItem(stateMatrix, keyUpHandler);
+                    gloablVar.hasItemMoved = false;
+                }
+                // checkEnd(stateMatrix,keyUpHandler);
+                // console.log(stateMatrix.map(ele=>ele.map(ele=>ele?ele.value:0)));
+            }, 100)
+
+        }
+    }));
+
+    container.addEventListener('touchmove',(e) => {
+        e.preventDefault();
+    })
 
     /**
      * 使用数组存放节点及其数值信息

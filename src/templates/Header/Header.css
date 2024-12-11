@@ -56,3 +56,10 @@
     font-size: 20px;
     border-radius: 5px;
 }
+
+@media (max-width: 520px) {
+    .header {
+        margin: auto;
+        width: 80vw;
+    }
+}

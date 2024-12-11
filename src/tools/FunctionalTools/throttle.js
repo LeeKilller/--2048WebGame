@@ -1,4 +1,4 @@
-const throttle = (fun,delay = 300) => {
+const throttle = (fun,delay = 100) => {
     let oldTime = Date.now();
     return (...args) => {
         const newTime = Date.now();
