@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack && nwbuild --mode=build --glob=false --flavor=sdk --cacheDir=./node_modules/nw ./public"
+    "build": "webpack && nwbuild --mode=build --glob=false --flavor=sdk --cacheDir=./node_modules/nw ./public",
+    "publish": "webpack --output-path ./docs"
   },
   "dependencies": {
     "nw-builder": "4.9.0"
