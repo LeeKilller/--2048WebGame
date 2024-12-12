@@ -8,7 +8,7 @@ const checkEnd = (stateMatrix,clickEventFun) => {
             const curEle = stateMatrix[i][j];
             if(!curEle) continue;
             if(stateMatrix[i][j + 1] && stateMatrix[i][j + 1].value === curEle.value) return;
-            if(stateMatrix[i + 1] && stateMatrix[i + 1][j] && stateMatrix[i + 1][j].value === curEle.value) return; 
+            if(stateMatrix[i + 1] && stateMatrix[i + 1][j].value === curEle.value) return; 
         }
     }
     cover.style.display = 'flex';
