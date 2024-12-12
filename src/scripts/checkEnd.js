@@ -1,8 +1,6 @@
 const checkEnd = (stateMatrix,clickEventFun) => {
     const cover = document.querySelector(".main-cover");
 
-
-
     for(let i = 0; i < stateMatrix.length; i++) {
         for(let j = 0; j < stateMatrix[i].length; j++) {
             const curEle = stateMatrix[i][j];

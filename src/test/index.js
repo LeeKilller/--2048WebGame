@@ -20,7 +20,7 @@ const fn = (arr) => {
         for(let j = 0; j < arr[i].length; j++) {
             const curEle = arr[i][j];
             if(!curEle) continue;
-            if(arr[i][j + 1] && arr[i][j + 1]=== curEle) return;
+            if(arr[i][j + 1] && arr[i][j + 1] === curEle) return;
             if(arr[i + 1] && arr[i + 1][j] === curEle) return; 
         }
     }
