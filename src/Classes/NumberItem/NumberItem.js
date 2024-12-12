@@ -52,6 +52,7 @@ class NumberItem {
         }
         
         gloablVar.hasItemMoved = true;
+        //console.log('item',gloablVar);
 
         const tarValue = Number(getGridPos(index));
 

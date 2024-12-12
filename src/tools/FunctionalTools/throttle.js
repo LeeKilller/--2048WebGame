@@ -1,3 +1,6 @@
+import { gloablVar } from "../../scripts/global";
+
+
 const throttle = (fun,delay = 200) => {
     let oldTime = Date.now();
     return (...args) => {

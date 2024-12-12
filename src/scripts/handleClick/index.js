@@ -33,9 +33,11 @@ const keyUpHandler = throttle((e) => {
     if(e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight') {
         clickRight(stateMatrix);
     }
+    
+    //console.log(gloablVar.animationQue);
 
     Promise.all(gloablVar.animationQue).then(()=>{
-        gloablVar.animationQue = [];
+        gloablVar.animationQue.length = 0;
         if (gloablVar.hasItemMoved) {
             randomCreateItem(stateMatrix, keyUpHandler);
             gloablVar.hasItemMoved = false;
