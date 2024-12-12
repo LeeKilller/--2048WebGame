@@ -1,7 +1,6 @@
 .header {
     margin: auto;
     width: 520px;
-    height: 140px;
 }
 
 .header-board {
@@ -13,9 +12,12 @@
     color: #766e66;
     margin-right: auto;
     font-size: 38px;
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    white-space: nowrap;
+    text-align: center;
+}
+
+.header-board .score-wrapper {
+    width: 180px;
+    display: flex;
 }
 
 .header-board ul {
@@ -25,7 +27,7 @@
     background-color: #b8aea1;
     padding: 5px 20px;
     border-radius: 5px;
-    margin-left: 10px;
+    margin: 0 5px;
     font-weight: 600;
 }
 
@@ -49,9 +51,7 @@
     color: #756e66;
     font-weight: 500;
     font-size: 20px;
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    white-space: nowrap;
+    text-align: center;
 }
 
 #restart {
@@ -64,11 +64,22 @@
     overflow: hidden; 
     text-overflow: ellipsis; 
     white-space: nowrap;
+    margin: 10px;
 }
 
 @media (max-width: 520px) {
     .header {
         margin: auto;
         width: 80vw;
+    }
+
+
+    .header section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-board h1 {
+        margin: 0;
     }
 }
