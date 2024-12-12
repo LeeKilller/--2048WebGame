@@ -1,4 +1,9 @@
 import randomCreateItem from "../randomCreateItem.js";
+import { gloablVar } from "../global";
+
+const { animationQue } = gloablVar;
+
+
 
 const clickRight = (stateMatrix) => {
     //console.log(stateMatrix);
@@ -11,24 +16,24 @@ const clickRight = (stateMatrix) => {
             if(ele === null) continue;
 
             if(frontEle === null) {
-                ele.moveInRow(tarPos);
+                animationQue.push(ele.moveInRow(tarPos));
                 frontEle = ele;
                 continue;
             }
 
             if(frontEle.value !== ele.value) {
                 tarPos--;
-                ele.moveInRow(tarPos);
+                animationQue.push(ele.moveInRow(tarPos));
                 frontEle = ele;
                 continue;
             }
 
             const tarEle = frontEle;
 
-            ele.moveInRow(tarPos, -1)
+            animationQue.push(ele.moveInRow(tarPos, -1)
             .then(()=>{
                 ele.handleDestroy(tarEle)
-            })
+            }))
 
             tarPos--;
             frontEle = null;

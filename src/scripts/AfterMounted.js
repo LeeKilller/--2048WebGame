@@ -101,14 +101,22 @@ const AfterMounted = () => {
                 }
             }
 
-            setTimeout(() => {
+            Promise.all(gloablVar.animationQue).then(()=>{
+                gloablVar.animationQue = [];
                 if (gloablVar.hasItemMoved) {
                     randomCreateItem(stateMatrix, keyUpHandler);
                     gloablVar.hasItemMoved = false;
                 }
-                // checkEnd(stateMatrix,keyUpHandler);
-                // console.log(stateMatrix.map(ele=>ele.map(ele=>ele?ele.value:0)));
-            }, 100)
+            })
+
+            // setTimeout(() => {
+            //     if (gloablVar.hasItemMoved) {
+            //         randomCreateItem(stateMatrix, keyUpHandler);
+            //         gloablVar.hasItemMoved = false;
+            //     }
+            //     // checkEnd(stateMatrix,keyUpHandler);
+            //     // console.log(stateMatrix.map(ele=>ele.map(ele=>ele?ele.value:0)));
+            // }, 200)
 
         }
     }));

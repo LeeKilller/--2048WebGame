@@ -34,14 +34,22 @@ const keyUpHandler = throttle((e) => {
         clickRight(stateMatrix);
     }
 
-    setTimeout(()=>{
-        if(gloablVar.hasItemMoved) {
-            randomCreateItem(stateMatrix,keyUpHandler);
+    Promise.all(gloablVar.animationQue).then(()=>{
+        gloablVar.animationQue = [];
+        if (gloablVar.hasItemMoved) {
+            randomCreateItem(stateMatrix, keyUpHandler);
             gloablVar.hasItemMoved = false;
         }
-        // checkEnd(stateMatrix,keyUpHandler);
-        // console.log(stateMatrix.map(ele=>ele.map(ele=>ele?ele.value:0)));
-    },300)
+    })
+
+    // setTimeout(()=>{
+    //     if(gloablVar.hasItemMoved) {
+    //         randomCreateItem(stateMatrix,keyUpHandler);
+    //         gloablVar.hasItemMoved = false;
+    //     }
+    //     // checkEnd(stateMatrix,keyUpHandler);
+    //     // console.log(stateMatrix.map(ele=>ele.map(ele=>ele?ele.value:0)));
+    // },300)
 })
 
 export default keyUpHandler;

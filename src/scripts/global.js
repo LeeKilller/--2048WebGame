@@ -1,7 +1,8 @@
 
 const gloablVar = {
     hasItemMoved:false,
-    isWin:false
+    isWin:false,
+    animationQue : [],
 }
 
 const bestScore = new Proxy({
