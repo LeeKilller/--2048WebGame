@@ -86,6 +86,7 @@ const AfterMounted = () => {
         const endY = e.changedTouches[0]?.pageY;
         const distanceX = endX - startX;
         const distanceY = endY - startY;
+        if(Math.sqrt(distanceX**2 + distanceY**2) < 40) return;
         if (startX != null) {
             if (Math.abs(distanceX) > Math.abs(distanceY)) {
                 if (distanceX > 0) {
